@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/search_category"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:background="@drawable/textbox"
+            android:cursorVisible="false"
+            android:ems="5"
+            android:hint="Enter a category"
+            android:textColor="#000000">
+            <requestFocus/>
+        </EditText>
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
+            android:onClick="nearBySearch"
+            android:text="SEARCH"
+            android:textStyle="bold"></Button>
+        <Button
+            android:id="@+id/list_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:background="@drawable/listicon1"
+            android:onClick="getList"
+            android:textColor="#ffffff"
+            android:textStyle="bold"></Button>
+
+    </LinearLayout>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+
+        tools:context="com.example.android.googlemap.MapsActivity" ></fragment>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Directions"
+        android:textSize="20sp"
+        android:background="@drawable/button_shape"
+        android:onClick="directions"></Button>
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    android:background="@drawable/infowindow">
+
+    <ImageView
+        android:id="@+id/place_icon"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/place1"
+        android:contentDescription="Place"></ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="3750 Tamayo street"
+            android:layout_marginBottom="3dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/place_snippet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="3750 Tamayo street"
+            android:textSize="14sp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.example.android.smartstreet.about">
+
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:padding="20dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:text="&#34;Smart Street application is very innovative way to know and interact with Smart Circuit Tree. Every tree has a unique 2-d barcode which user can scan using this application. After scanning user will get the information about that light tree such as maker, profile, lightening.\n User can also use &#34;Interact&#34; option to chage the music,lightening or color of smart tree.Our application also provides options like Capture, Places Around ,Share and Comment.\nThis project of Smart Street is very useful in various aspects, it makes strangers get acquainted with the city, also people feel safe when streets are empty because they can handle the lightening of street light trees.&#34;"
+            android:textColor="#5D4037"
+            android:textSize="17dp"
+            android:textStyle="italic"></TextView>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="10dp"
+            android:text="Click to scan the 2-d barcode of Light-Tree."
+            android:textColor="#5D4037"
+            android:textSize="20dp"></TextView>
+
+        <ImageButton
+            android:id="@+id/scan_button"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/text"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/scan3"
+            android:onClick="scan"
+            android:textSize="18dp"></ImageButton>
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/scan_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Smart tree Information : "
+            android:textColor="#5D4037"
+            android:textSize="20dp"
+           ></TextView>
+
+        <TextView
+            android:id="@+id/content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_text"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#5D4037"
+            android:textSize="18dp"
+            android:textStyle="bold"></TextView>
+
+    </LinearLayout>
+</ScrollView>

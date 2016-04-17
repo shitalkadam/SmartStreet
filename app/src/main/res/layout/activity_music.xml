@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.smartstreet.Music">
+
+    <LinearLayout
+        android:id="@+id/record_view"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@drawable/music_box">
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Record Here"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/microphone" />
+
+        <Chronometer
+            android:id="@+id/myMeter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/record_bt"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/recordbt"
+                android:onClick="start" />
+
+            <ImageButton
+                android:id="@+id/stop_bt"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:onClick="stop"
+                android:background="@drawable/stop7"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/music_layout"
+        android:layout_below="@id/record_view"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/music_box"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Now Play"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:textSize="20dp" />
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:src="@drawable/music42" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/media_play"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:background="@drawable/play2"
+                android:onClick="playRecording"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/media_stop"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/pause1"
+                android:onClick="stopPlay"></ImageButton>
+
+            <ImageButton
+                android:id="@+id/media_pause"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/stop7"
+                android:onClick="pause"></ImageButton>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/music_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/share"
+        android:onClick="shareMusic" />
+
+</RelativeLayout>

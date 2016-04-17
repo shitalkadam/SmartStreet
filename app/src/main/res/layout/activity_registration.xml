@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.example.android.smartstreet.Registration">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:background="@drawable/registration">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="Registration Form"
+            android:textColor="#68201c"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000000" />
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name..."
+            android:textStyle="italic"
+            android:inputType="textPersonName"
+            android:textColorHint="#000000" />
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name..."
+            android:textStyle="italic"
+            android:inputType="textPersonName"
+            android:textColorHint="#000000" />
+
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Choose user name..."
+            android:textStyle="italic"
+            android:inputType="textPersonName"
+            android:textColorHint="#000000"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password..."
+            android:textStyle="italic"
+            android:inputType="textPassword"
+            android:textColorHint="#000000"/>
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact Number..."
+            android:textStyle="italic"
+            android:inputType="phone"
+            android:textColorHint="#000000"/>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email address..."
+            android:textStyle="italic"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#000000"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/submit_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/alert_button"
+                android:textStyle="bold"
+                android:text="Submit"
+                android:onClick="submit"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/cancel_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/alert_button"
+                android:onClick="home"
+                android:textStyle="bold"
+                android:text="Cancel"
+                android:textSize="15dp" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Register Using Barcode"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <ImageButton
+            android:id="@+id/scan_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:onClick="barcodeRegister"
+            android:background="@drawable/scan3"></ImageButton>
+
+
+    </LinearLayout>
+
+</LinearLayout>
