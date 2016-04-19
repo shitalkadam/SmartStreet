@@ -82,7 +82,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/nearBy"
+                android:background="@drawable/nearby"
                 android:onClick="places"></ImageButton>
 
         </LinearLayout>
