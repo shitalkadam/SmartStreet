@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -80,6 +81,27 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_about, menu);
         return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+   /* mPaint.setXfermode(null);
+    mPaint.setAlpha(0xFF);*/
+
+        switch (item.getItemId()) {
+            case R.id.action_profile:
+                //Do Some Task
+                Intent profile_intent = new Intent(this, profile.class);
+                startActivity(profile_intent);
+                return true;
+            case R.id.action_settings:
+                //Do Some Task
+                return true;
+            case R.id.action_logout:
+                //Do Some Task
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

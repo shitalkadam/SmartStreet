@@ -8,18 +8,17 @@
         android:id="@+id/:dialog_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#68201c"
+        android:background="#FFAB00"
         android:padding="10dp"
         android:text="REGISTER"
         android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="20sp"></TextView>
+        android:textColor="#000000"
+        android:textSize="22sp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#D7CCC8">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/:permission"
@@ -47,7 +46,7 @@
                 android:onClick="register"
                 android:textSize="15dp"
                 android:text="Register"
-                android:textColor="#ffffff"
+                android:textColor="#000000"
                 android:textStyle="bold"></Button>
 
             <Button
@@ -58,7 +57,7 @@
                 android:onClick="noRegister"
                 android:textSize="15dp"
                 android:text="No,Thanks"
-                android:textColor="#ffffff"
+                android:textColor="#000000"
                 android:textStyle="bold"></Button>
         </LinearLayout>
 

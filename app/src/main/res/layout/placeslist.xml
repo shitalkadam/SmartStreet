@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:background="@drawable/distance">
+        android:background="@drawable/button_shape">
 
         <TextView
             android:id="@+id/placesname"

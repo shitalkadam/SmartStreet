@@ -256,10 +256,4 @@ public class Registration extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
         userRegistrationHelper.close();
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_about, menu);
-        return true;
-    }
 }
