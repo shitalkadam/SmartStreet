@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -161,14 +163,6 @@ public class Registration extends AppCompatActivity {
         View View = MyLayout.inflate(R.layout.custom_actionbar, null);
 
         //Toast will appear on clicking logobutton
-        logoButton = (ImageButton) View.findViewById(R.id.image_bt);
-        logoButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
         if (myActionBar != null) {
             myActionBar.setCustomView(View);
         }
@@ -261,5 +255,11 @@ public class Registration extends AppCompatActivity {
         userRegistrationHelper.addInformations(fname,lname,user, password, phone, email, sqLiteDatabase);
         Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
         userRegistrationHelper.close();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_about, menu);
+        return true;
     }
 }

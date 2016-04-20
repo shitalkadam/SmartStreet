@@ -17,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
@@ -264,19 +266,18 @@ public class Music extends AppCompatActivity {
         View View = MyLayout.inflate(R.layout.custom_actionbar, null);
 
         //Toast will appear on clicking logobutton
-        logoButton = (ImageButton) View.findViewById(R.id.image_bt);
-        logoButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Refreshed", Toast.LENGTH_LONG).show();
-            }
-        });
         if (myActionBar != null) {
             myActionBar.setCustomView(View);
         }
         if (myActionBar != null) {
             myActionBar.setDisplayShowCustomEnabled(true);
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_about, menu);
+        return true;
     }
 }

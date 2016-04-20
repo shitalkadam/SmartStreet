@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.media.MediaScannerConnection;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.MediaController;
 import android.net.Uri;
 import android.os.Environment;
@@ -185,19 +187,17 @@ public class Video extends AppCompatActivity {
         View View = MyLayout.inflate(R.layout.custom_actionbar, null);
 
         //Toast will appear on clicking logobutton
-        logoButton = (ImageButton) View.findViewById(R.id.image_bt);
-        logoButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Refreshed", Toast.LENGTH_LONG).show();
-            }
-        });
         if (myActionBar != null) {
             myActionBar.setCustomView(View);
         }
         if (myActionBar != null) {
             myActionBar.setDisplayShowCustomEnabled(true);
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_about, menu);
+        return true;
     }
 }

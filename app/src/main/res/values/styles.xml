@@ -6,6 +6,8 @@
         <item name="colorPrimary">#FFAB00</item>
         <item name="colorPrimaryDark">#FFAB00</item>
         <item name="colorAccent">#FFAB00</item>
+        <item name="logo">@drawable/icon</item>
+        <item name="displayOptions">useLogo|showHome</item>
 
     </style>
 

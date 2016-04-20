@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -48,20 +50,18 @@ public class UserLogin extends AppCompatActivity {
         View View = MyLayout.inflate(R.layout.custom_actionbar, null);
 
         //Toast will appear on clicking logobutton
-        logoButton = (ImageButton) View.findViewById(R.id.image_bt);
-        logoButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
         if (myActionBar != null) {
             myActionBar.setCustomView(View);
         }
         if (myActionBar != null) {
             myActionBar.setDisplayShowCustomEnabled(true);
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_about, menu);
+        return true;
     }
     //method will invoke when user clicks on login button
     public void submit(View view){
