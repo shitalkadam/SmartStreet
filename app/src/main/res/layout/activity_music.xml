@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:padding="10dp"
         android:background="@drawable/music_box">
 
@@ -47,18 +47,18 @@
 
             <ImageButton
                 android:id="@+id/record_bt"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/recordbt"
+                android:background="@drawable/start"
                 android:onClick="start" />
 
             <ImageButton
                 android:id="@+id/stop_bt"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:onClick="stop"
-                android:background="@drawable/stop7"
+                android:background="@drawable/stop"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -87,8 +87,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:src="@drawable/music42" />
+            android:src="@drawable/music3" />
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -104,23 +103,23 @@
 
             <ImageButton
                 android:id="@+id/media_play"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:background="@drawable/play2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/play"
                 android:onClick="playRecording"></ImageButton>
 
             <ImageButton
                 android:id="@+id/media_stop"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/pause1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/pause"
                 android:onClick="stopPlay"></ImageButton>
 
             <ImageButton
                 android:id="@+id/media_pause"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/stop7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/stop"
                 android:onClick="pause"></ImageButton>
         </LinearLayout>
     </LinearLayout>
