@@ -2,22 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:orientation="horizontal"
-    android:background="#FFAB00">
+    android:orientation="vertical"
+    android:background="#ffb607">
 
-
-    <ImageView
-        android:id="@+id/logoicon"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="60dp"
-        android:src="@drawable/icon"></ImageView>
 
     <TextView
         android:id="@+id/title_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
         android:text="Smart Street"
         android:textAllCaps="true"
         android:textSize="20dp"

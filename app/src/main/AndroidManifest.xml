@@ -85,11 +85,14 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Video"
-            android:parentActivityName=".MainActivity"></activity>
-
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".profile"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".Comment_post"
+            android:parentActivityName=".Comment" ></activity>
     </application>
 
 </manifest>

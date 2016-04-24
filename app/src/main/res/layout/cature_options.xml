@@ -13,11 +13,12 @@
         android:text=" Capture options"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="20sp"></TextView>
+        android:textSize="20dp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -29,24 +30,24 @@
 
             <ImageButton
                 android:id="@+id/photo_bt"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginRight="20dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="40dp"
                 android:background="@drawable/photo"
                 android:onClick="capturePhoto"></ImageButton>
 
             <ImageButton
                 android:id="@+id/music_bt"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/music"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/music3"
                 android:onClick="captureMusic"></ImageButton>
 
             <ImageButton
                 android:id="@+id/video_bt"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:background="@drawable/video"
                 android:onClick="captureVideo"></ImageButton>
 
@@ -56,33 +57,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="63dp"
                 android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="italic"
+                android:textSize="18dp"
                 android:text="Photo"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
-                android:textSize="18sp"
+                android:layout_marginRight="61dp"
+                android:textSize="18dp"
                 android:textColor="#000000"
-                android:textStyle="italic"
                 android:text="Music"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="18dp"
                 android:textColor="#000000"
-                android:textStyle="italic"
                 android:text="Video"></TextView>
 
         </LinearLayout>

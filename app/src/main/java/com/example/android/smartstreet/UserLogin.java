@@ -22,9 +22,9 @@ public class UserLogin extends AppCompatActivity {
 
     String passDb;
     String firstNameDb="";
-    String userNameDb;
+    String emailDb;
 
-    EditText userNameText;
+    EditText emailText;
     EditText passwordText;
 
     @Override
@@ -32,9 +32,8 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
         customActionBar();
-        userNameText = (EditText) findViewById(R.id.user_name_text);
+        emailText = (EditText) findViewById(R.id.email_text);
         passwordText = (EditText) findViewById(R.id.password_text);
-
     }
     //creating actionbar
     public void customActionBar() {
@@ -57,25 +56,19 @@ public class UserLogin extends AppCompatActivity {
             myActionBar.setDisplayShowCustomEnabled(true);
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_about, menu);
-        return true;
-    }
     //method will invoke when user clicks on login button
     public void submit(View view){
        //getting user name from view
-        String userName = userNameText.getText().toString();
+        String email = emailText.getText().toString();
         //getting password from view
         String password = passwordText.getText().toString();
        //opening the database and getting contents
         userRegistrationHelper = new UserRegistrationHelper(getApplicationContext());
         sqLiteDatabase = userRegistrationHelper.getReadableDatabase();
-        Cursor cursor = userRegistrationHelper.getUser(userName,sqLiteDatabase);
+        Cursor cursor = userRegistrationHelper.getUser(email,sqLiteDatabase);
         //matching the username and password
         if(cursor.moveToFirst()){
-            userNameDb = cursor.getString(0);
+            emailDb = cursor.getString(0);
             passDb = cursor.getString(1);
             firstNameDb = cursor.getString(2);
 
@@ -93,7 +86,7 @@ public class UserLogin extends AppCompatActivity {
             }
         }
         else {
-            userNameText.setError("wrong username");
+            emailText.setError("wrong username");
         }
 
 

@@ -55,7 +55,7 @@ import java.util.Locale;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
     SupportMapFragment supportMapFragment;
-    Button search_bt;
+    ImageButton search_bt;
     EditText search_text;
     String search_category;
     ListView listView;
@@ -66,7 +66,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     ArrayList<Bundle> stepDetails;
     String completeDistanceText;
     String completeDurationText;
-    Button list_button;
     private GoogleMap myMap;
     private double myLocationLatitude;
     private double myLocationLongitude;
@@ -82,13 +81,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //Custom Actionbar will be displayed by calling customActionBar() method
         customActionBar();
 
-        search_bt = (Button) findViewById(R.id.search_button);
+        search_bt = (ImageButton) findViewById(R.id.search_button);
         search_text = (EditText) findViewById(R.id.search_category);
         search_text.getBackground().clearColorFilter();
-
-        list_button = (Button) findViewById(R.id.list_button);
-        list_button.setClickable(false);
-
     }
 
     /**
@@ -194,7 +189,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         StringBuilder placeStringBuilder = new StringBuilder(placeStringBuilder());
         NearByPlacesTask placesTask = new NearByPlacesTask();
         placesTask.execute(placeStringBuilder.toString());
-        list_button.setClickable(true);
     }
 
     /**

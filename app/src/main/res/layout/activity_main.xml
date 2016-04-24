@@ -44,8 +44,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="25dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/about"
+                android:background="@drawable/about3"
                 android:onClick="about"></ImageButton>
 
             <ImageButton
@@ -101,7 +101,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="About"
                 android:textAlignment="center"
-                android:textColor="#5D4037"
+                android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
 
@@ -113,7 +113,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="Share"
                 android:textAlignment="center"
-                android:textColor="#5D4037"
+                android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
 
@@ -126,7 +126,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="Places Around"
                 android:textAlignment="center"
-                android:textColor="#5D4037"
+                android:textColor="#000000"
                 android:textSize="20dp"
 
                 android:textStyle="bold"></TextView>
@@ -169,7 +169,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/interact"></ImageButton>
+                android:background="@drawable/interact456"></ImageButton>
         </LinearLayout>
 
         <LinearLayout
@@ -184,7 +184,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="Comment"
                 android:textAlignment="center"
-                android:textColor="#5D4037"
+                android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
 
@@ -196,7 +196,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="Capture"
                 android:textAlignment="center"
-                android:textColor="#5D4037"
+                android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
 
@@ -208,7 +208,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="Interact"
                 android:textAlignment="center"
-                android:textColor="#5D4037"
+                android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
@@ -217,8 +217,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -231,12 +229,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:fontFamily="sans-serif-condensed"
             android:text="Scan this QR Code to go to our website and download this application."
             android:textAlignment="center"
-            android:textColor="#5D4037"
+            android:textColor="#000000"
             android:textSize="15dp"
             android:textStyle="bold"></TextView>>
     </LinearLayout>

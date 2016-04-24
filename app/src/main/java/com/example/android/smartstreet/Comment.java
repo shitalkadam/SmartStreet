@@ -1,6 +1,7 @@
 package com.example.android.smartstreet;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -28,8 +29,6 @@ public class Comment extends AppCompatActivity {
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapterComment;
     ListView list;
-    EditText editText;
-    RatingBar ratingBar;
     ImageButton logoButton;
     TextView userName;
     String firstName = "";
@@ -42,10 +41,7 @@ public class Comment extends AppCompatActivity {
         firstName = getIntent().getStringExtra("firstname");
         customActionBar();
 
-        userName = (TextView) findViewById(R.id.user_name);
-        userName.setText(firstName);
         list = (ListView) findViewById(R.id.list_view);
-        customActionBar();
         addComments();
     }
 
@@ -76,25 +72,7 @@ public class Comment extends AppCompatActivity {
         return true;
     }
     // this function takes new comment information from editText, rating and adds to the Comment database.
-    public void newComment(View view) {
-        editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-        double rating = ratingBar.getRating();
-        message = "\n" + message + "\nRating: " + rating + "\n\t-" + firstName;
 
-        commentDbHelper = new CommentDbHelper(context);
-        //getting database instance to write data
-        sqLiteDatabase = commentDbHelper.getWritableDatabase();
-        commentDbHelper.addInformations(message, sqLiteDatabase);
-        //toast will appear after successful database insertion
-        Toast.makeText(getBaseContext(), "Comment Saved", Toast.LENGTH_LONG).show();
-        //database closing
-        commentDbHelper.close();
-        editText.setText("");
-        adapterComment.clear();
-        addComments();
-    }
     //this method will add the all the commemts from database in a listview
     public void addComments() {
         commentDbHelper = new CommentDbHelper(getApplicationContext());
@@ -122,5 +100,11 @@ public class Comment extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void postcomment(View view){
+        Intent comment_intent = new Intent(this, Comment_post.class);
+        comment_intent.putExtra("firstname", firstName);
+        startActivity(comment_intent);
     }
 }

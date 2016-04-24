@@ -10,10 +10,10 @@
         android:layout_height="wrap_content"
         android:background="#FFAB00"
         android:padding="10dp"
-        android:text="REGISTER"
+        android:text="Register"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="22sp"></TextView>
+        android:textSize="20dp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:text="Please register first!"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="20sp"></TextView>
+            android:textSize="20dp"></TextView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -42,22 +42,22 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
-                android:background="@drawable/alert_button"
+                android:background="@drawable/button_shape"
                 android:onClick="register"
                 android:textSize="15dp"
                 android:text="Register"
-                android:textColor="#000000"
+                android:textColor="#ffffff"
                 android:textStyle="bold"></Button>
 
             <Button
                 android:id="@+id/nobutton"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/alert_button"
+                android:background="@drawable/button_shape"
                 android:onClick="noRegister"
                 android:textSize="15dp"
                 android:text="No,Thanks"
-                android:textColor="#000000"
+                android:textColor="#ffffff"
                 android:textStyle="bold"></Button>
         </LinearLayout>
 

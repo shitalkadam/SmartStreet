@@ -11,7 +11,6 @@ public class UserValidationHelper {
 
     //field validation regular expression
     private static final String FIRSTNAME_PATTERN = "^[a-zA-Z\\s]*$";
-    private static final String USERNAME_PATTERN = "^[a-z0-9._-]{2,25}$";
     private static final String PASSWORD_PATTERN = "^[a-z0-9._-]{2,25}$";
     private static final String PHONE_PATTEREN = "\\d{3}-\\d{7}";
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -27,10 +26,6 @@ public class UserValidationHelper {
     //validating first name
     public static boolean validFirstName(EditText editText, boolean required) {
         return fieldValidation(editText, FIRSTNAME_PATTERN, MSG_FIRSTNAME, required);
-    }
-    //validating user name
-    public static boolean validUserName(EditText editText, boolean required) {
-        return fieldValidation(editText, USERNAME_PATTERN, MSG_USERNAME, required);
     }
     //validating password
     public static boolean validPassword(EditText editText, boolean required) {

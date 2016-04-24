@@ -12,7 +12,7 @@ import android.util.Log;
  */
 public class UserRegistrationHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "USERINFORMATION.DB";
+    private static final String DATABASE_NAME = "USERPROFILE.DB";
     private static final int DATABASE_VERSION = 1;
 
     //creating the user database query
@@ -21,10 +21,9 @@ public class UserRegistrationHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + UserInformationContract.UserInfo.TABLE_NAME + "(" +
                     UserInformationContract.UserInfo.FIRST_NAME + " TEXT," +
                     UserInformationContract.UserInfo.LAST_NAME + " TEXT," +
-                    UserInformationContract.UserInfo.USER_NAME + " TEXT PRIMARY KEY," +
+                    UserInformationContract.UserInfo.USER_EMAIL + " TEXT," +
                     UserInformationContract.UserInfo.USER_PASSWORD + " TEXT," +
-                    UserInformationContract.UserInfo.USER_PHONE + " TEXT," +
-                    UserInformationContract.UserInfo.USER_EMAIL + " TEXT);";
+                    UserInformationContract.UserInfo.USER_PHONE + " TEXT);";
 
     public UserRegistrationHelper(Context context) {
 
@@ -40,22 +39,21 @@ public class UserRegistrationHelper extends SQLiteOpenHelper {
 
     }
     //adding the new user's information in database
-    public void addInformations(String firstName, String lastName, String userName, String password, String phone, String email, SQLiteDatabase db) {
+    public void addInformations(String firstName, String lastName, String email, String password, String phone, SQLiteDatabase db) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(UserInformationContract.UserInfo.FIRST_NAME, firstName);
         contentValues.put(UserInformationContract.UserInfo.LAST_NAME, lastName);
-        contentValues.put(UserInformationContract.UserInfo.USER_NAME, userName);
+        contentValues.put(UserInformationContract.UserInfo.USER_EMAIL, email);
         contentValues.put(UserInformationContract.UserInfo.USER_PASSWORD, password);
         contentValues.put(UserInformationContract.UserInfo.USER_PHONE, phone);
-        contentValues.put(UserInformationContract.UserInfo.USER_EMAIL, email);
         db.insert(UserInformationContract.UserInfo.TABLE_NAME, null, contentValues);
         Log.e("OPERATING DATABASE", "New row inserted...");
     }
     //searching the username for logging in
-    public Cursor getUser(String user_name, SQLiteDatabase db) {
-        String[] projections = {UserInformationContract.UserInfo.USER_NAME, UserInformationContract.UserInfo.USER_PASSWORD,UserInformationContract.UserInfo.FIRST_NAME};
-        String selection = UserInformationContract.UserInfo.USER_NAME + " LIKE ?";
-        String[] selection_args = {user_name};
+    public Cursor getUser(String email, SQLiteDatabase db) {
+        String[] projections = {UserInformationContract.UserInfo.USER_EMAIL, UserInformationContract.UserInfo.USER_PASSWORD,UserInformationContract.UserInfo.FIRST_NAME};
+        String selection = UserInformationContract.UserInfo.USER_EMAIL + " LIKE ?";
+        String[] selection_args = {email};
         Cursor cursor = db.query(UserInformationContract.UserInfo.TABLE_NAME, projections, selection, selection_args, null, null, null);
         return cursor;
     }

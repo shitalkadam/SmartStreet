@@ -17,10 +17,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class Registration extends AppCompatActivity {
-    ImageButton logoButton;
     static final String SCAN_BARCODE = "com.google.zxing.client.android.SCAN";
-
-    EditText firstNameText,lastNameText,userNameText,passwordText,phoneText,emailText;
+    EditText firstNameText,lastNameText,emailText,passwordText,phoneText;
     Context context = this;
     UserRegistrationHelper userRegistrationHelper;
     SQLiteDatabase sqLiteDatabase;
@@ -57,14 +55,14 @@ public class Registration extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count){}
         });
 
-        userNameText = (EditText) findViewById(R.id.userName);
+        emailText = (EditText) findViewById(R.id.email);
         //adding the text chage listener to validate text entry
-        userNameText.addTextChangedListener(new TextWatcher() {
+        emailText.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
-                UserValidationHelper.validUserName(userNameText, true);
+                UserValidationHelper.validEmailAddress(emailText, true);
             }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
-            public void onTextChanged(CharSequence s, int start, int before, int count){}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
         });
 
         passwordText = (EditText) findViewById(R.id.password);
@@ -88,16 +86,6 @@ public class Registration extends AppCompatActivity {
             }
         });
 
-        emailText = (EditText) findViewById(R.id.email);
-        //adding the text chage listener to validate text entry
-        emailText.addTextChangedListener(new TextWatcher() {
-            public void afterTextChanged(Editable s) {
-                UserValidationHelper.validEmailAddress(emailText, true);
-            }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-        });
-
 //        Button btnSubmit = (Button) findViewById(R.id.submit_bt);
 //        btnSubmit.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -119,15 +107,14 @@ public class Registration extends AppCompatActivity {
         //getting data form views
         firstName = firstNameText.getText().toString();
         String lastName = lastNameText.getText().toString();
-        String userName = userNameText.getText().toString();
+        String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         String phone = phoneText.getText().toString();
-        String email = emailText.getText().toString();
 
         //opening the database and inserting new user's data into it
         userRegistrationHelper = new UserRegistrationHelper(context);
         sqLiteDatabase = userRegistrationHelper.getWritableDatabase();
-        userRegistrationHelper.addInformations(firstName,lastName,userName, password, phone, email, sqLiteDatabase);
+        userRegistrationHelper.addInformations(firstName,lastName, email, password, phone, sqLiteDatabase);
         Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
         userRegistrationHelper.close();
 
@@ -143,10 +130,10 @@ public class Registration extends AppCompatActivity {
         boolean reValue = true;
 
         if (!UserValidationHelper.validFirstName(firstNameText, true)) reValue = false;
-        if (!UserValidationHelper.validUserName(userNameText, true)) reValue = false;
+        if (!UserValidationHelper.validEmailAddress(emailText, true)) reValue = false;
         if (!UserValidationHelper.validPassword(passwordText, true)) reValue = false;
         if (!UserValidationHelper.validPhoneNumber(phoneText, true)) reValue = false;
-        if (!UserValidationHelper.validEmailAddress(emailText, true)) reValue = false;
+
         return reValue;
     }
    //adding actionbar to application
@@ -227,10 +214,10 @@ public class Registration extends AppCompatActivity {
         String textStr[] = code_contents.split("\\r?\\n");
         String lineFName = textStr[0];
         String lineLName = textStr[1];
-        String lineUser = textStr[2];
+        String lineEamil = textStr[2];
         String linePassword = textStr[3];
         String linePhone = textStr[4];
-        String lineEamil = textStr[5];
+
 
         String textStr1[] = lineFName.split(":");
         fname = textStr1[1];
@@ -238,8 +225,8 @@ public class Registration extends AppCompatActivity {
         String textStr2[] = lineLName.split(":");
         String lname = textStr2[1];
 
-        String textStr3[] = lineUser.split(":");
-        String user = textStr3[1];
+        String textStr3[] = lineEamil.split(":");
+        String email = textStr3[1];
 
         String textStr4[] = linePassword.split(":");
         String password = textStr4[1];
@@ -247,12 +234,11 @@ public class Registration extends AppCompatActivity {
         String textStr5[] = linePhone.split(":");
         String phone = textStr5[1];
 
-        String textStr6[] = lineEamil.split(":");
-        String email = textStr6[1];
+
         //adding the information of user into database
         userRegistrationHelper = new UserRegistrationHelper(context);
         sqLiteDatabase = userRegistrationHelper.getWritableDatabase();
-        userRegistrationHelper.addInformations(fname,lname,user, password, phone, email, sqLiteDatabase);
+        userRegistrationHelper.addInformations(fname, lname, email, password, phone, sqLiteDatabase);
         Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
         userRegistrationHelper.close();
     }
