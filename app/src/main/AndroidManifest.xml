@@ -89,10 +89,10 @@
         <activity
             android:name=".profile"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".Comment_post"
-            android:parentActivityName=".Comment" ></activity>
+            android:parentActivityName=".Comment" />
+        <activity android:name=".ReviewListActivity"></activity>
     </application>
 
 </manifest>

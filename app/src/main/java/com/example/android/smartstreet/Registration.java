@@ -16,14 +16,29 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Registration extends AppCompatActivity {
     static final String SCAN_BARCODE = "com.google.zxing.client.android.SCAN";
     EditText firstNameText,lastNameText,emailText,passwordText,phoneText;
     Context context = this;
     UserRegistrationHelper userRegistrationHelper;
     SQLiteDatabase sqLiteDatabase;
+
+    private static final String URL = "https://smartstreetapp.firebaseio.com";
+    Firebase ref;
+
     String code_contents;
     String firstName;
+    String lastName;
+    String phone;
+    String email;
+    String password;
     String fname;
 
     @Override
@@ -31,6 +46,8 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         customActionBar();
+        Firebase.setAndroidContext(this);
+        ref = new Firebase(URL);
        //creating the registration form
         createViews();
     }
@@ -104,26 +121,40 @@ public class Registration extends AppCompatActivity {
     }
     //method is invoked when adding user information into database
     private void formSubmit() {
+
         //getting data form views
+
         firstName = firstNameText.getText().toString();
-        String lastName = lastNameText.getText().toString();
-        String email = emailText.getText().toString();
-        String password = passwordText.getText().toString();
-        String phone = phoneText.getText().toString();
+        lastName = lastNameText.getText().toString();
+        password = passwordText.getText().toString();
+        phone = phoneText.getText().toString();
+        email = emailText.getText().toString();
 
-        //opening the database and inserting new user's data into it
-        userRegistrationHelper = new UserRegistrationHelper(context);
-        sqLiteDatabase = userRegistrationHelper.getWritableDatabase();
-        userRegistrationHelper.addInformations(firstName,lastName, email, password, phone, sqLiteDatabase);
-        Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
-        userRegistrationHelper.close();
+        ref.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
+            @Override
+            public void onSuccess(Map<String, Object> result) {
 
-//        firstNameText.setText("");
-//        userNameText.setText("");
-//        lastNameText.setText("");
-//        passwordText.setText("");
-//        phoneText.setText("");
-//        emailText.setText("");
+                System.out.println("Successfully created user account with uid: " + result.get("uid"));
+                Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
+
+                String uid = result.get("uid").toString();
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("firstName", firstName);
+                map.put("lastName", lastName);
+                map.put("phone", phone);
+                map.put("email", email);
+                ref.child("users").child(uid).setValue(map);
+            }
+
+            @Override
+            public void onError(FirebaseError firebaseError) {
+                // there was an error
+                System.out.println("UN Successfully created user account with uid: ");
+                Toast.makeText(getBaseContext(), firebaseError.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
     //validating the entered fields
     private boolean validationCkeck() {
@@ -161,10 +192,15 @@ public class Registration extends AppCompatActivity {
     public void submit(View view){
         if (validationCkeck()) {
             formSubmit();
-            Intent home_intent = new Intent(this, MainActivity.class);
-            home_intent.putExtra("firstname", firstName);
-            startActivity(home_intent);
-            this.finish();
+            AuthData authData = ref.getAuth();
+            if (authData != null) {
+                Intent home_intent = new Intent(this, MainActivity.class);
+                home_intent.putExtra("firstname", firstName);
+                startActivity(home_intent);
+                this.finish();
+            } else {
+                //Toast.makeText(getBaseContext(), "UnRegistered successfully!", Toast.LENGTH_LONG).show();
+            }
         }
         else
             Toast.makeText(Registration.this, "Form contains error", Toast.LENGTH_LONG).show();

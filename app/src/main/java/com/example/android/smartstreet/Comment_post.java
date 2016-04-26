@@ -31,7 +31,6 @@ public class Comment_post extends AppCompatActivity {
         setContentView(R.layout.activity_comment_post);
         firstName = getIntent().getStringExtra("firstname");
         customActionBar();
-
         userName = (TextView) findViewById(R.id.user_name);
         userName.setText(firstName);
     }

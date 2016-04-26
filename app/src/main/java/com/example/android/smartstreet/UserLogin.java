@@ -14,11 +14,19 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+
 public class UserLogin extends AppCompatActivity {
     ImageButton logoButton;
 
     UserRegistrationHelper userRegistrationHelper;
     SQLiteDatabase sqLiteDatabase;
+
+
+    private static final String URL = "https://smartstreetapp.firebaseio.com";
+    Firebase ref;
 
     String passDb;
     String firstNameDb="";
@@ -30,6 +38,7 @@ public class UserLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_user_login);
         customActionBar();
         emailText = (EditText) findViewById(R.id.email_text);
@@ -58,38 +67,38 @@ public class UserLogin extends AppCompatActivity {
     }
     //method will invoke when user clicks on login button
     public void submit(View view){
-       //getting user name from view
-        String email = emailText.getText().toString();
+        // Create a handler to handle the result of the authentication
+        Firebase.AuthResultHandler authResultHandler = new Firebase.AuthResultHandler() {
+            @Override
+            public void onAuthenticated(AuthData authData) {
+                // Authenticated successfully with payload authData
+
+            }
+
+            @Override
+            public void onAuthenticationError(FirebaseError firebaseError) {
+                // Authenticated failed with error firebaseError
+            }
+        };
+
+
+        //getting user name from view
+        String userName = emailText.getText().toString();
         //getting password from view
         String password = passwordText.getText().toString();
-       //opening the database and getting contents
-        userRegistrationHelper = new UserRegistrationHelper(getApplicationContext());
-        sqLiteDatabase = userRegistrationHelper.getReadableDatabase();
-        Cursor cursor = userRegistrationHelper.getUser(email,sqLiteDatabase);
-        //matching the username and password
-        if(cursor.moveToFirst()){
-            emailDb = cursor.getString(0);
-            passDb = cursor.getString(1);
-            firstNameDb = cursor.getString(2);
+        ref = new Firebase(URL);
 
-            if(password.equals(passDb)) {
+        ref.authWithPassword(userName,password,authResultHandler);
+
+        AuthData authData = ref.getAuth();
+        if (authData != null){
                //if username and password matches launches the home page
                 Intent home_intent = new Intent(this,MainActivity.class);
                 //putting user's name with hame page intent
-                home_intent.putExtra("firstname", firstNameDb);
+                home_intent.putExtra("firstname", userName);
                 startActivity(home_intent);
                 this.finish();
             }
-            else{
-
-                passwordText.setError("wrong password");
-            }
-        }
-        else {
-            emailText.setError("wrong username");
-        }
-
-
     }
     //launches the registration activity
     public void register(View view){

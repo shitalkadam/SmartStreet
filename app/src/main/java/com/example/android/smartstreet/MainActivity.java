@@ -24,6 +24,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int SELECT_MEDIA = 1;
     ImageButton logoButton;
+
+    private static final String URL = "https://smartstreetapp.firebaseio.com";
+    Firebase ref;
+
     showDialog dialog;
     registerDialog registerDialog;
     String mediaPath;
@@ -42,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Firebase.setAndroidContext(this);
+        ref = new Firebase(URL);
 
         firstName = getIntent().getStringExtra("firstname");
         customActionBar();
@@ -127,16 +137,22 @@ public class MainActivity extends AppCompatActivity {
     public void comment(View view) {
         //checking if user is logged in or not
         // if not registered asks to register
-        if (firstName == null) {
+        AuthData authData = ref.getAuth();
+        if(authData == null || firstName == null){
             registerDialog = new registerDialog(this);
             registerDialog.show();
         } else {
             //else open the comment activity
-            Intent comment_intent = new Intent(this, Comment.class);
-            comment_intent.putExtra("firstname", firstName);
-            startActivity(comment_intent);
+            Bundle bundle = new Bundle();
+
+            bundle.putString("username", firstName);
+
+            Intent intent = new Intent(this, ReviewListActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
     }
+
     //launches the register activity
     public void register(View view) {
         registerDialog.cancel();
