@@ -15,4 +15,8 @@
     <string name="context_delete_item_text">Delete</string>
     <string name="context_delete_title">Select Reviews to delete</string>
     <string name="title_activity_cameraapi">CameraapiActivity</string>
+    <string name="title_activity_interact">Interact</string>
+    <string name="on_button">ON</string>
+    <string name="off_button">OFF</string>
+    <!--to add to the git-->
 </resources>

@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,8 +29,10 @@ public class ReviewListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Bundle bundle = getIntent().getExtras();
         myUsername = bundle.getString("username");
+
         setContentView(R.layout.review_list_view);
         listView = (ListView)findViewById(R.id.list_view);
         final ImageButton button = (ImageButton) findViewById(R.id.add);
@@ -43,7 +46,7 @@ public class ReviewListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(onItemClickListener());
     }
 
-
+    //to add to the git
     private AdapterView.OnItemClickListener onItemClickListener() {
         return new AdapterView.OnItemClickListener() {
 
@@ -116,7 +119,8 @@ public class ReviewListActivity extends AppCompatActivity {
             @Override
             public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
                 View view = inflater.inflate(R.layout.dialog_add, container);
-                getDialog().setTitle("Add a Review and Rating");
+             //   getDialog().setTitle("Add a Review and Rating");
+                getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
                 final Button confirmButton = (Button) view.findViewById(R.id.add_dialog_ok);
                 final Button cancelButton = (Button) view.findViewById(R.id.add_dialog_cancel);
                 final TextView userTextView = (TextView) view.findViewById(R.id.add_dialog_usename);

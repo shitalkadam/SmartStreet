@@ -58,6 +58,8 @@ public class profile extends AppCompatActivity {
     }
 
     public void customActionBar() {
+
+        //to add to the git
         android.support.v7.app.ActionBar myActionBar = getSupportActionBar();
         if (myActionBar != null) {
             myActionBar.setDisplayShowHomeEnabled(false);

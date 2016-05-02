@@ -45,6 +45,8 @@ public class Photo extends AppCompatActivity {
         share = (ImageButton) findViewById(R.id.share_bt);
         share.setEnabled(false);
     }
+
+    //to add to the git
     // starting the camera activity for taking picture
     public void reTakePicture(View view) {
         String picturePath = null;

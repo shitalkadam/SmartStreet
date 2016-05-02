@@ -49,6 +49,8 @@ public class ReviewArrayAdapter extends BaseAdapter {
 
         }
 
+        //to add to the git
+
         @Override
         public void onChildRemoved(DataSnapshot dataSnapshot) {
 

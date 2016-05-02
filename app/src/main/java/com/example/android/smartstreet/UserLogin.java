@@ -21,10 +21,6 @@ import com.firebase.client.FirebaseError;
 public class UserLogin extends AppCompatActivity {
     ImageButton logoButton;
 
-    UserRegistrationHelper userRegistrationHelper;
-    SQLiteDatabase sqLiteDatabase;
-
-
     private static final String URL = "https://smartstreetapp.firebaseio.com";
     Firebase ref;
 
@@ -44,6 +40,8 @@ public class UserLogin extends AppCompatActivity {
         emailText = (EditText) findViewById(R.id.email_text);
         passwordText = (EditText) findViewById(R.id.password_text);
     }
+
+    //to add to the git
     //creating actionbar
     public void customActionBar() {
         android.support.v7.app.ActionBar myActionBar = getSupportActionBar();

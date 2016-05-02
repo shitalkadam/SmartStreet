@@ -16,6 +16,8 @@ public class UserProfile {
         return key;
     }
 
+
+    //to add to the git
     public void setKey(String key) {
         this.key = key;
     }

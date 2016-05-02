@@ -45,6 +45,8 @@ public class Video extends AppCompatActivity {
         share = (ImageButton) findViewById(R.id.share_bt);
  //       share.setEnabled(false);
     }
+
+    //to add to the git
     // starting the camera activity for recording video
     public void takeVideo(View view) {
         String video_path = null;

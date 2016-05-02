@@ -23,6 +23,8 @@
             <requestFocus />
         </EditText>
 
+        <!--to add to the git-->
+
         <ImageButton
             android:id="@+id/search_button"
             android:layout_width="40dp"

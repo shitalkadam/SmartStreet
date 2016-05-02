@@ -8,14 +8,16 @@
     android:padding="16dp"
     tools:context="com.example.android.smartstreet.UserLogin">
 
-
-    <ImageView
-        android:id="@+id/picture"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/login1" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp"
+        android:text="Sign In"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/email_text"
@@ -27,7 +29,7 @@
         android:hint="E-mail address..."
         android:inputType="textEmailAddress"
         android:textStyle="italic" />
-
+    <!--to add to the git-->
     <EditText
         android:id="@+id/password_text"
         android:layout_width="300dp"
@@ -39,8 +41,8 @@
         android:textStyle="italic" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
         android:background="@drawable/button_shape"
@@ -73,7 +75,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginRight="5dp"
             android:onClick="register"
-            android:text="Register Now"
+            android:text="Sign Up Now"
             android:textSize="15dp"
             android:textStyle="bold" />
 
@@ -88,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:onClick="home"
-            android:text="Register Later"
+            android:text="Sign Up Later"
             android:textSize="15dp"
             android:textStyle="bold" />
     </LinearLayout>

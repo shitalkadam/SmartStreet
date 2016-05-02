@@ -30,6 +30,8 @@ public class Steps extends AppCompatActivity {
         listView.setAdapter(new StepsAdapter(direction));
     }
 
+    //to add to the git
+
     /**
      * Custom BaseAdapter for the stepsdetail array
      */

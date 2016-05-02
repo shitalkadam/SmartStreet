@@ -30,6 +30,8 @@ class ReviewViewWrapper {
         }
         return(commnet);
     }
+
+    //to add to the git
     TextView getLabel() {
         if (label==null) {
             label=(TextView)base.findViewById(R.id.label);

@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:hint="First name..."
         android:inputType="textPersonName"
-        android:textColorHint="#000000"
         android:textStyle="italic" />
     <EditText
         android:id="@+id/lastName"
@@ -33,8 +32,9 @@
         android:layout_height="wrap_content"
         android:hint="Last name..."
         android:inputType="textPersonName"
-        android:textColorHint="#000000"
         android:textStyle="italic" />
+
+    <!--to add to the git-->
 
     <EditText
         android:id="@+id/email"
@@ -43,7 +43,6 @@
         android:layout_height="wrap_content"
         android:hint="Email address..."
         android:inputType="textEmailAddress"
-        android:textColorHint="#000000"
         android:textStyle="italic" />
 
     <EditText
@@ -53,7 +52,6 @@
         android:layout_height="wrap_content"
         android:hint="Password..."
         android:inputType="textPassword"
-        android:textColorHint="#000000"
         android:textStyle="italic" />
 
     <EditText
@@ -64,7 +62,6 @@
         android:hint="Contact Number..."
         android:layout_marginBottom="10dp"
         android:inputType="phone"
-        android:textColorHint="#000000"
         android:textStyle="italic" />
 
     <LinearLayout
@@ -75,8 +72,8 @@
 
         <Button
             android:id="@+id/submit_bt"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:layout_height="35dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/button_shape"
             android:onClick="submit"
@@ -87,8 +84,8 @@
 
         <Button
             android:id="@+id/cancel_bt"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:layout_height="35dp"
             android:background="@drawable/button_shape"
             android:onClick="home"
             android:text="Cancel"

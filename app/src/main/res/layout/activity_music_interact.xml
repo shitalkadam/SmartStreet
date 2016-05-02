@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="80dp"
+        android:text="Play Music"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/music3" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#81D4FA"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/previous_play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="20dp"
+            android:onClick="previous"
+            android:background="@drawable/previous"></ImageButton>
+
+        <!--to add to the git-->
+
+        <ImageButton
+            android:id="@+id/media_play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/play"
+            android:onClick="play"></ImageButton>
+
+        <ImageButton
+            android:id="@+id/media_stop"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/pause"
+            android:onClick="pause"></ImageButton>
+
+        <ImageButton
+            android:id="@+id/media_pause"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/stop"
+            android:onClick="stop"></ImageButton>
+
+        <ImageButton
+            android:id="@+id/next_play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="next"
+            android:background="@drawable/next"></ImageButton>
+    </LinearLayout>
+</LinearLayout>

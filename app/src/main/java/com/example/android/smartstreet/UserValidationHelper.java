@@ -23,6 +23,8 @@ public class UserValidationHelper {
     private static final String MSG_PHONE = "###-#######";
     private static final String MSG_EMAIL = "Invalid email";
 
+    //to add to the git
+
     //validating first name
     public static boolean validFirstName(EditText editText, boolean required) {
         return fieldValidation(editText, FIRSTNAME_PATTERN, MSG_FIRSTNAME, required);

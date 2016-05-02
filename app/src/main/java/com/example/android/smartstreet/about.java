@@ -25,9 +25,15 @@ public class about extends AppCompatActivity {
 
     showDialog dialog;
 
+
+    //to add to the git
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+
+
         content_text = (TextView) findViewById(R.id.content_text);
         //creating Actionbar in application
         customActionBar();

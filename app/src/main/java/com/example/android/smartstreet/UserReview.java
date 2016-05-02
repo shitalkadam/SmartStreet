@@ -21,6 +21,8 @@ public class UserReview {
         this.rating = rating;
     }
 
+    //to add to the git
+
     public Float getRating() {
         return rating;
     }

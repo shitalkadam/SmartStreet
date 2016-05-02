@@ -19,6 +19,8 @@ import java.util.ArrayList;
  */
 public class direction extends AppCompatActivity {
 
+    //to add to the git
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.placeslist);

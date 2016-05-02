@@ -169,6 +169,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:onClick="interact"
                 android:background="@drawable/interact456"></ImageButton>
         </LinearLayout>
 
@@ -218,6 +219,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal">
+
+        <!--to add to the git-->
 
         <ImageView
             android:layout_width="100dp"

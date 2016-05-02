@@ -153,11 +153,36 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void interact(View view){
+        AuthData authData = ref.getAuth();
+        if(authData == null || firstName == null){
+            registerDialog = new registerDialog(this);
+            registerDialog.show();
+        } else {
+            //else open the comment activity
+            Bundle bundle = new Bundle();
+
+            bundle.putString("username", firstName);
+
+            Intent intent = new Intent(this, Interact.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+    }
+
     //launches the register activity
     public void register(View view) {
         registerDialog.cancel();
-        Intent register_intent = new Intent(this, Registration.class);
-        startActivity(register_intent);
+        Intent register = new Intent(this, Registration.class);
+        startActivity(register);
+        this.finish();
+    }
+
+    public void signIn(View view){
+        registerDialog.cancel();
+        Intent login_intent = new Intent(this, UserLogin.class);
+        startActivity(login_intent);
+        this.finish();
     }
 
     //if user clicks on "No, thanks" closes the alertDialog
@@ -290,6 +315,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    //to add to the git
     //displaying register dialog
     class registerDialog extends Dialog {
 
@@ -311,6 +337,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onStop() {
             super.onStop();
         }
-
     }
+
 }

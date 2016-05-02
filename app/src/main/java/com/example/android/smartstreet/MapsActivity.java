@@ -70,6 +70,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private double myLocationLatitude;
     private double myLocationLongitude;
 
+    //to add to the git
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

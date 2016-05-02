@@ -51,7 +51,7 @@ public class Music extends AppCompatActivity {
     private TextView text;
     private Chronometer chronometer;
     private SeekBar seekbar;
-
+    //to add to the git
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

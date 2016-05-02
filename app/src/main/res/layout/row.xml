@@ -1,48 +1,54 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:descendantFocusability="blocksDescendants">
+    android:padding="10dp"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hi there"
+        android:layout_marginBottom="1dp"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <LinearLayout
+        <RatingBar
+            android:id="@+id/rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="12">
+            android:numStars="5"
+            android:layout_marginRight="10dp"
+            android:progressTint="#03a9f4"
+            android:rating="1.0"
+            style="?android:attr/ratingBarStyleSmall"
+            android:stepSize="0.5"
+            android:isIndicator="true"
+            />
 
-            <RatingBar
-                android:id="@+id/rate"
-                android:layout_weight="8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:isIndicator="true"
-                android:stepSize="0.5" />
-
-            <TextView
-                android:id="@+id/label"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="right"
-                android:textSize="8sp"
-                android:textStyle="bold"
-                android:layout_weight="4"/>
-
-        </LinearLayout>
+        <!--android:transformPivotX="0dp"-->
+        <!--android:transformPivotY="0dp"-->
+        <!--android:stepSize="0.1"-->
+        <!--android:scaleX="0.5"-->
+        <!--android:scaleY="0.5"-->
+        <!--to add to the git-->
 
         <TextView
-            android:id="@+id/comment"
-            android:layout_width="match_parent"
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="left"
-            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:text="hello"
+            android:textColor="#000000"
+            android:textSize="12sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

@@ -30,6 +30,7 @@
             android:text="3750 Tamayo street"
             android:layout_marginBottom="3dp"
             android:textStyle="bold"></TextView>
+        <!--to add to the git-->
 
         <TextView
             android:id="@+id/place_snippet"

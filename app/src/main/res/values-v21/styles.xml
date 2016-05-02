@@ -5,6 +5,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">#68201c</item>
+        <!--to add to the git-->
 
     </style>
 </resources>

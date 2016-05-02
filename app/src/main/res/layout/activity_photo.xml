@@ -25,6 +25,8 @@
         android:background="@drawable/photo"
         android:onClick="reTakePicture"></ImageButton>
 
+    <!--to add to the git-->
+
 
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

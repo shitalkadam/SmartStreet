@@ -27,8 +27,6 @@ public class Registration extends AppCompatActivity {
     static final String SCAN_BARCODE = "com.google.zxing.client.android.SCAN";
     EditText firstNameText,lastNameText,emailText,passwordText,phoneText;
     Context context = this;
-    UserRegistrationHelper userRegistrationHelper;
-    SQLiteDatabase sqLiteDatabase;
 
     private static final String URL = "https://smartstreetapp.firebaseio.com";
     Firebase ref;
@@ -51,6 +49,8 @@ public class Registration extends AppCompatActivity {
        //creating the registration form
         createViews();
     }
+
+    //to add to the git
 
     private void createViews() {
         firstNameText = (EditText) findViewById(R.id.firstName);
@@ -259,23 +259,39 @@ public class Registration extends AppCompatActivity {
         fname = textStr1[1];
 
         String textStr2[] = lineLName.split(":");
-        String lname = textStr2[1];
+        final String lname = textStr2[1];
 
         String textStr3[] = lineEamil.split(":");
-        String email = textStr3[1];
+        final String email = textStr3[1];
 
         String textStr4[] = linePassword.split(":");
-        String password = textStr4[1];
+        final String password = textStr4[1];
 
         String textStr5[] = linePhone.split(":");
-        String phone = textStr5[1];
+        final String phone = textStr5[1];
 
+        ref.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
+            @Override
+            public void onSuccess(Map<String, Object> result) {
 
-        //adding the information of user into database
-        userRegistrationHelper = new UserRegistrationHelper(context);
-        sqLiteDatabase = userRegistrationHelper.getWritableDatabase();
-        userRegistrationHelper.addInformations(fname, lname, email, password, phone, sqLiteDatabase);
-        Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
-        userRegistrationHelper.close();
+                System.out.println("Successfully created user account with uid: " + result.get("uid"));
+                Toast.makeText(getBaseContext(), "Registered successfully!", Toast.LENGTH_LONG).show();
+
+                String uid = result.get("uid").toString();
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("firstName", fname);
+                map.put("lastName", lname);
+                map.put("phone", phone);
+                map.put("email", email);
+                ref.child("users").child(uid).setValue(map);
+            }
+
+            @Override
+            public void onError(FirebaseError firebaseError) {
+                // there was an error
+                System.out.println("UN Successfully created user account with uid: ");
+                Toast.makeText(getBaseContext(), firebaseError.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

@@ -17,5 +17,7 @@ public class SplashScreen extends AppCompatActivity {
         finish();
     }
 
+    //to add to the git
+
 
 }

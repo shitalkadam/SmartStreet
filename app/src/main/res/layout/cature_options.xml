@@ -28,6 +28,8 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
+            <!--to add to the git-->
+
             <ImageButton
                 android:id="@+id/photo_bt"
                 android:layout_width="70dp"
